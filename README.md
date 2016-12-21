@@ -54,6 +54,7 @@ Marks:
  - Modify collision on jump and slide
  - Add animations related to running, jumping, sliding
 
+
  ** Day 4: ** Add further refinement to imaging/styling of the game and menus.
  Add links to related pages. Make sure product FEELS good.
 
