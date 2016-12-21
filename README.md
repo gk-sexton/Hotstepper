@@ -32,13 +32,13 @@ The game will use
 - Webpack to wrap and export all files
 
 ### Implementation Timeline
-** Day 1: ** Create all basic structure for working on and webpack-ing the project.
+**Day 1:** Create all basic structure for working on and webpack-ing the project.
 Familarize myself with EaselJS to make sure the program is appropriately structured.
 
 Marks:
 - Get the skeleton set and successful use all intended tools
 
-** Day 2: ** Dynamically synchronize EaselJS elements with JavaScript elements.
+**Day 2:** Dynamically synchronize EaselJS elements with JavaScript elements.
 Add logic for terrain movement/generation
 
 Marks:
@@ -46,7 +46,7 @@ Marks:
 - Have controllable terrain generation and scrolling.
 - Add controls to create a new game and reset
 
-** Day 3: ** Add characters hit detection and score tracking.
+**Day 3:** Add characters hit detection and score tracking.
  Add running animations.
 
  Marks:
@@ -55,7 +55,7 @@ Marks:
  - Add animations related to running, jumping, sliding
 
 
- ** Day 4: ** Add further refinement to imaging/styling of the game and menus.
+ **Day 4:** Add further refinement to imaging/styling of the game and menus.
  Add links to related pages. Make sure product FEELS good.
 
  Marks:
