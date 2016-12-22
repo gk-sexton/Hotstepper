@@ -72,6 +72,7 @@
 	    this.rectangle.graphics.beginFill('rgba(179, 0, 53, 0.83)').drawRect(0, 0, this.body.width, this.body.height);
 	    this.rectangle.x = 0;
 	    this.rectangle.y = 0;
+	    this.paused = false;
 	
 	    this.player.graphics.beginFill('rgb(0, 186, 255)').drawRect(0, 0, 20, 20);
 	    this.player.x = 40;
@@ -163,18 +164,28 @@
 	      this.stage.update();
 	    }
 	  }, {
+	    key: 'pauseHandler',
+	    value: function pauseHandler() {
+	      this.paused = !this.paused;
+	    }
+	  }, {
 	    key: 'keyPress',
 	    value: function keyPress(e) {
 	      var jump = 32,
-	          pause = 9,
+	          pause = 80,
 	          reset = 82;
 	      switch (e.keyCode) {
 	        case pause:
 	          this.pauseHandler();
+	          break;
+	
 	        case jump:
 	          this.playerJump();
+	          break;
+	
 	        case reset:
 	          this.resetHandler();
+	          break;
 	      }
 	    }
 	  }, {
@@ -187,7 +198,9 @@
 	    key: 'tickHandler',
 	    value: function tickHandler() {
 	      this.updateScore();
-	      this.moveObjects();
+	      if (!this.paused) {
+	        this.moveObjects();
+	      }
 	      this.stage.update();
 	    }
 	  }]);
