@@ -1,0 +1,14 @@
+#mainCanvas {
+  width: 900px;
+  height: 500px;
+  margin: auto;
+  border: 1px solid red;
+}
+
+h1 {
+  text-align: center;
+}
+main {
+  display: flex;
+  flex-direction: column;
+}
