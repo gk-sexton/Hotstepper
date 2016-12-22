@@ -2,7 +2,6 @@
   width: 900px;
   height: 500px;
   margin: auto;
-  border: 1px solid red;
 }
 
 h1 {
@@ -11,4 +10,13 @@ h1 {
 main {
   display: flex;
   flex-direction: column;
+}
+
+aside {
+  color: white;
+  position: absolute;
+  top: 90px;
+  left: 200px;
+  font-size: 60px;
+  border: 1px solid red;
 }

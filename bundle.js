@@ -68,6 +68,7 @@
 	    this.playerGoing = 'nowhere';
 	    this.paused = false;
 	    this.obstacles = [];
+	    this.score = 0;
 	    this.rectangle.graphics.beginFill('rgba(179, 0, 53, 0.83)').drawRect(0, 0, this.body.width, this.body.height);
 	    this.rectangle.x = 0;
 	    this.rectangle.y = 0;
@@ -93,6 +94,7 @@
 	    this.resetHandler = this.resetHandler.bind(this);
 	    this.pauseHandler = this.pauseHandler.bind(this);
 	    this.moveObstacles = this.moveObstacles.bind(this);
+	    this.updateScore = this.updateScore.bind(this);
 	  }
 	
 	  _createClass(Game, [{
@@ -140,12 +142,12 @@
 	  }, {
 	    key: 'moveObstacles',
 	    value: function moveObstacles() {
-	      var _this = this;
-	
+	      var that = this;
 	      this.obstacles.forEach(function (obstacle) {
 	        obstacle.x -= 1;
 	        if (obstacle.x == -10) {
-	          _this.obsctacles.unshift;
+	          that.obstacles.unshift;
+	          that.score += 1;
 	        }
 	      });
 	    }
@@ -176,8 +178,15 @@
 	      }
 	    }
 	  }, {
+	    key: 'updateScore',
+	    value: function updateScore() {
+	      var board = document.getElementById('score-indicator');
+	      board.innerHTML = this.score;
+	    }
+	  }, {
 	    key: 'tickHandler',
 	    value: function tickHandler() {
+	      this.updateScore();
 	      this.moveObjects();
 	      this.stage.update();
 	    }
