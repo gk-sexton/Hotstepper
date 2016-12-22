@@ -67,7 +67,7 @@
 	    this.ground = new _createjs2.default.Shape();
 	    this.playerGoing = 'nowhere';
 	    this.paused = false;
-	
+	    this.obstacles = [];
 	    this.rectangle.graphics.beginFill('rgba(179, 0, 53, 0.83)').drawRect(0, 0, this.body.width, this.body.height);
 	    this.rectangle.x = 0;
 	    this.rectangle.y = 0;
@@ -85,8 +85,6 @@
 	    this.stage.addChild(this.ground);
 	    this.stage.update();
 	
-	    this.generateObstacle();
-	
 	    this.tickHandler = this.tickHandler.bind(this);
 	    this.keyPress = this.keyPress.bind(this);
 	    this.playerJump = this.playerJump.bind(this);
@@ -94,7 +92,7 @@
 	    this.resetHandler = this.resetHandler.bind(this);
 	    this.resetHandler = this.resetHandler.bind(this);
 	    this.pauseHandler = this.pauseHandler.bind(this);
-	    this.moveObstacle = this.moveObstacle.bind(this);
+	    this.moveObstacles = this.moveObstacles.bind(this);
 	  }
 	
 	  _createClass(Game, [{
@@ -134,24 +132,32 @@
 	          this.player.y += 1;
 	        }
 	      }
-	      if (_createjs2.default.Ticker.getTicks() % 300 == 0) {
+	      if (_createjs2.default.Ticker.getTicks() % 100 == 0) {
 	        this.generateObstacle();
 	      }
-	      this.moveObstacle();
+	      this.moveObstacles();
 	    }
 	  }, {
-	    key: 'moveObstacle',
-	    value: function moveObstacle() {
-	      this.obstacle.x -= 1;
+	    key: 'moveObstacles',
+	    value: function moveObstacles() {
+	      var _this = this;
+	
+	      this.obstacles.forEach(function (obstacle) {
+	        obstacle.x -= 1;
+	        if (obstacle.x == -10) {
+	          _this.obsctacles.unshift;
+	        }
+	      });
 	    }
 	  }, {
 	    key: 'generateObstacle',
 	    value: function generateObstacle() {
-	      this.obstacle = new _createjs2.default.Shape();
-	      this.obstacle.graphics.beginFill('blackrgb(173, 120, 3)').drawRect(0, 0, 10, 10);
-	      this.obstacle.x = this.body.width;
-	      this.obstacle.y = 110;
-	      this.stage.addChild(this.obstacle);
+	      var x = new _createjs2.default.Shape();
+	      x.graphics.beginFill('blackrgb(173, 120, 3)').drawRect(0, 0, 10, 10);
+	      x.x = this.body.width;
+	      x.y = 110;
+	      this.obstacles.push(x);
+	      this.stage.addChild(x);
 	      this.stage.update();
 	    }
 	  }, {
