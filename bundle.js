@@ -77,6 +77,7 @@
 	    this.player.graphics.beginFill('rgb(0, 186, 255)').drawRect(0, 0, 20, 20);
 	    this.player.x = 40;
 	    this.player.y = 100;
+	    this.player.setBounds(0, 0, 20, 20);
 	
 	    this.ground.graphics.beginFill('rgb(72, 99, 108)').drawRect(0, 0, this.body.width + 4, 115);
 	    this.ground.x = 0;
@@ -146,6 +147,13 @@
 	      var that = this;
 	      this.obstacles.forEach(function (obstacle) {
 	        obstacle.x -= 1;
+	        if (obstacle.x > 30 && obstacle.x < 60) {
+	          if (that.player.y >= 100) {
+	            debugger;
+	            console.log('hit');
+	          }
+	        }
+	
 	        if (obstacle.x == -10) {
 	          that.obstacles.unshift;
 	          that.score += 1;
@@ -156,9 +164,10 @@
 	    key: 'generateObstacle',
 	    value: function generateObstacle() {
 	      var x = new _createjs2.default.Shape();
-	      x.graphics.beginFill('blackrgb(173, 120, 3)').drawRect(0, 0, 10, 10);
+	      x.graphics.beginFill('black').drawRect(0, 0, 10, 10);
 	      x.x = this.body.width;
 	      x.y = 110;
+	      x.setBounds(0, 0, 10, 10);
 	      this.obstacles.push(x);
 	      this.stage.addChild(x);
 	      this.stage.update();
